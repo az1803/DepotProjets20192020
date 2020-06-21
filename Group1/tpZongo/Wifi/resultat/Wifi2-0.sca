@@ -1,0 +1,41 @@
+version 2
+run Wifi2-0-20200621-10:23:29-10772
+attr configname Wifi2
+attr datetime 20200621-10:23:29
+attr experiment Wifi2
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Wifi1
+attr processid 10772
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.T*.ipv4.arp.typename "\"GlobalArp\""
+param *.Tclient.numApps 1
+param *.Tclient.app[0].typename "\"UdpBasicApp\""
+param *.Tclient.app[0].destAddresses "\"Tserveur\""
+param *.Tclient.app[0].destPort 1500
+param *.Tclient.app[0].messageLength 1000B
+param *.Tclient.app[0].sendInterval exponential(12ms)
+param *.Tclient.app[0].packetName "\"UDPData\""
+param *.Tclient.wlan[0].radio.displayCommunicationRange false
+param *.Tserveur*.numApps 1
+param *.Tserveur*.app[0].typename "\"UdpSink\""
+param *.Tserveur*.app[0].localPort 1500
+param *.T*.wlan[0].typename "\"AckingWirelessInterface\""
+param *.T*.wlan[0].mac.useAck true
+param *.T*.wlan[0].mac.fullDuplex false
+param *.T*.wlan[0].radio.transmitter.communicationRange 1500m
+param *.T*.wlan[0].radio.receiver.ignoreInterference true
+param *.T*.wlan[0].mac.headerLength 23B
+param *.visualizer.mediumVisualizer.displaySignals true
+param *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+param *.visualizer.physicalLinkVisualizer.displayLinks true
+param *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData\""
+param *.T*.**.bitrate 1Mbps
+
+

@@ -1,0 +1,144 @@
+file 7883 1592731571                                            
+version 2
+run Wifi2-0-20200621-10:23:29-10772
+attr configname Wifi2
+attr datetime 20200621-10:23:29
+attr experiment Wifi2
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Wifi1
+attr processid 10772
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.T*.ipv4.arp.typename "\"GlobalArp\""
+param *.Tclient.numApps 1
+param *.Tclient.app[0].typename "\"UdpBasicApp\""
+param *.Tclient.app[0].destAddresses "\"Tserveur\""
+param *.Tclient.app[0].destPort 1500
+param *.Tclient.app[0].messageLength 1000B
+param *.Tclient.app[0].sendInterval exponential(12ms)
+param *.Tclient.app[0].packetName "\"UDPData\""
+param *.Tclient.wlan[0].radio.displayCommunicationRange false
+param *.Tserveur*.numApps 1
+param *.Tserveur*.app[0].typename "\"UdpSink\""
+param *.Tserveur*.app[0].localPort 1500
+param *.T*.wlan[0].typename "\"AckingWirelessInterface\""
+param *.T*.wlan[0].mac.useAck true
+param *.T*.wlan[0].mac.fullDuplex false
+param *.T*.wlan[0].radio.transmitter.communicationRange 1500m
+param *.T*.wlan[0].radio.receiver.ignoreInterference true
+param *.T*.wlan[0].mac.headerLength 23B
+param *.visualizer.mediumVisualizer.displaySignals true
+param *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+param *.visualizer.physicalLinkVisualizer.displayLinks true
+param *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData\""
+param *.T*.**.bitrate 1Mbps
+
+vector 0 Wifi1.Tclient.wlan[0].queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 1 Wifi1.Tserveur.wlan[0].queue queueLength:vector ETV
+attr interpolationmode sample-hold
+attr title "queue length, vector"
+vector 2 Wifi1.Tclient.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 3 Wifi1.Tserveur.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr source radioModeChanged
+attr title "Radio mode, vector"
+vector 4 Wifi1.Tclient.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 5 Wifi1.Tserveur.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr source receptionStateChanged
+attr title "Radio reception state, vector"
+vector 6 Wifi1.Tclient.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 7 Wifi1.Tclient.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSent
+attr title "packets sent, vector(packetBytes)"
+vector 8 Wifi1.Tclient.wlan[0].queue packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "received packets, vector(packetBytes)"
+vector 9 Wifi1.Tclient.wlan[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr title "queueing time, vector"
+vector 10 Wifi1.Tclient.wlan[0].mac rcvdPkFromHl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromUpper
+attr title "packets received from higher layer, vector(packetBytes)"
+vector 11 Wifi1.Tclient.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr source transmissionStateChanged
+attr title "Radio transmission state, vector"
+vector 12 Wifi1.Tclient.wlan[0].mac sentDownPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToLower
+attr title "packets sent to lower layer, vector(packetBytes)"
+vector 13 Wifi1.Tserveur.wlan[0].mac rcvdPkFromLl:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceivedFromLower
+attr title "packets received from lower layer, vector(packetBytes)"
+vector 14 Wifi1.Tserveur.wlan[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 15 Wifi1.Tserveur.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 16 Wifi1.Tserveur.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed up, vector(count)"
+vector 17 Wifi1.Tserveur.app[0] packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetReceived
+attr title "packets received, vector(packetBytes)"
+vector 18 Wifi1.Tserveur.app[0] endToEndDelay:vector ETV
+attr interpolationmode none
+attr source dataAge(packetReceived)
+attr title "end-to-end delay, vector"
+attr unit s
+0	4751 101 0 46 0 0.049893341282 5 0 1 2 2
+1	4852 9 0 0 0 0 1 0 0 0 0
+2	4861 254 0 68 0 0.08347826742 13 0 3 27 69
+3	5115 27 0 0 0 0 3 0 2 2 4
+4	5142 236 0 68 0 0.08347826742 11 0 1 6 6
+5	5378 216 0 67 0 0.074977864709 10 1 3 20 50
+6	5594 128 4 61 0.022315250545 0.07497426742 5 1000 1000 5000 5000000
+7	5722 128 6 62 0.022315250545 0.07497426742 5 1008 1008 5040 5080320
+8	5850 128 8 64 0.022315250545 0.07497426742 5 1028 1028 5140 5283920
+9	5978 139 8 64 0.022315250545 0.07497426742 5 0 0.001895015449 0.003496382375 6.1554595836354e-006
+10	6117 133 9 65 0.022315250545 0.07497426742 5 1028 1028 5140 5283920
+11	6250 475 9 68 0.022315250545 0.08347826742 20 0 2 20 30
+12	6725 133 9 65 0.022315250545 0.07497426742 5 1051 1051 5255 5523005
+13	6858 108 18 55 0.030822847834 0.058400938571 4 1051 1051 4204 4418404
+14	6966 108 18 55 0.030822847834 0.058400938571 4 1028 1028 4112 4227136
+15	7074 108 22 57 0.030822847834 0.058400938571 4 1008 1008 4032 4064256
+16	7182 96 22 57 0.030822847834 0.058400938571 4 1 4 10 30
+17	7278 108 23 58 0.030822847834 0.058400938571 4 1000 1000 4000 4000000
+18	7386 148 23 58 0.030822847834 0.058400938571 4 0.008507597289 0.010402612738 0.037526771531 0.00035516393254055
+vector 19 Wifi1.Tclient.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+vector 20 Wifi1.Tserveur.app[0] throughput:vector ETV
+attr source throughput(packetReceived)
+attr title "throughput, vector"
+attr unit bps
+19	7819 24 68 68 0.083478654133 0.083478654133 1 0 0 0 0
+20	7843 38 68 68 0.083478654133 0.083478654133 1 383331.52747069 383331.52747069 383331.52747069 146943059953.01
+
